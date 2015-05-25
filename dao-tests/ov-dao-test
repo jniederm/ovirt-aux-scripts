@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo su - postgres -c "psql -c \"drop database engine_dao_tests;\""
+sudo su - postgres -c "psql -c \"create database engine_dao_tests owner engine;\""
+
+PGPASSWORD=engine ./packaging/dbscripts/schema.sh -c apply -d engine_dao_tests -u engine
+make maven BUILD_GWT=0 BUILD_UT=1 EXTRA_BUILD_FLAGS="-P enable-dao-tests -D engine.db.username=engine -D engine.db.password=engine -D engine.db.url=jdbc:postgresql://localhost/engine_dao_tests -pl backend/manager/modules/dal"
+notify-send "DAO tests completed"
