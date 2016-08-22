@@ -1,0 +1,9 @@
+---
+- hosts: hosts
+  remote_user: root
+  tasks:
+  - name: Install required dnf python binding
+    shell: dnf install -y python2-dnf
+    changed_when: False
+  - name: Host update
+    dnf: name=* state=latest
