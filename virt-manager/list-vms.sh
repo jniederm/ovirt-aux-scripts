@@ -2,6 +2,10 @@
 
 # todo add args --serial-console/-c and --ssh/-s, list table, read number, connect/print error
 
+# see http://stackoverflow.com/questions/19057915/libvirt-fetch-ipv4-address-from-guest
+# see sudo virsh net-dhcp-leases <network-name>
+# see sudo virsh domiflist <vm-name>
+
 process_virsh_list_line() {
     LINE=$1
     local ORIGINAL_IFS=IFS
