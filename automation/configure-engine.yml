@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    auth:
+      url: https://happybox:8443/ovirt-engine/api
+      username: admin@internal
+      password: a
+      insecure: true
+  tasks:
+  - ovirt_auth:
+      url: https://happybox:8443/ovirt-engine/api
+      username: admin@internal
+      password: a
+      insecure: true
+  - debug:
+      var: ovirt_auth
+  - ovirt_hosts:
+      auth: "{{ auth }}"
+      cluster: Default
+      name: Host1
+      address: 192.168.122.229
+      password: a
+    name: Add Host1
+
+#  - ovirt_storage_domains:
+#      name: d1
+#      host: Host1
+#      data_center: Default
+#      nfs:
+#        address: 192.168.122.1
+#        path: /home/jakub/nfs/d1
