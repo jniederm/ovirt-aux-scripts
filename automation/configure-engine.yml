@@ -8,21 +8,26 @@
       password: a
       insecure: true
   tasks:
-  - ovirt_auth:
-      url: https://happybox:8443/ovirt-engine/api
-      username: admin@internal
-      password: a
-      insecure: true
-  - debug:
-      var: ovirt_auth
+#  - ovirt_auth:
+#      url: https://happybox:8443/ovirt-engine/api
+#      username: admin@internal
+#      password: a
+#      insecure: true
+#  - debug:
+#      var: ovirt_auth
+  - name: Set CPU type for cluster
+    ovirt_clusters:
+     name: Default
+     cpu_type: Intel Haswell-noTSX Family
+     auth: "{{ auth }}" # later replace with "{{ ovirt_auth }}"
   - ovirt_hosts:
-      auth: "{{ auth }}"
       cluster: Default
       name: Host1
       address: 192.168.122.229
       password: a
+      auth: "{{ auth }}" # later replace with "{{ ovirt_auth }}"
     name: Add Host1
-
+# doesn't work probably because of missing nfs version option
 #  - ovirt_storage_domains:
 #      name: d1
 #      host: Host1
@@ -30,3 +35,4 @@
 #      nfs:
 #        address: 192.168.122.1
 #        path: /home/jakub/nfs/d1
+#      auth: "{{ auth }}" # later replace with "{{ ovirt_auth }}"
