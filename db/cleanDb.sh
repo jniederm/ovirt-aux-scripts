@@ -19,5 +19,6 @@ fi
 echo Cleaning database ${DB_NAME}
 psql -U postgres -c "drop database if exists \"${DB_NAME}\";" &&
 psql -U postgres -c "create database \"${DB_NAME}\" owner \"${USER_NAME}\" template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';" &&
+psql -U postgres -d ${DB_NAME} -c 'CREATE EXTENSION "uuid-ossp";' &&
 echo database ${DB_NAME} owned by ${USER_NAME} successfully recreated
 
