@@ -45,7 +45,7 @@ oc adm policy add-cluster-role-to-user cluster-admin developer
 
 ### Kubevirt installation
 
-    In case Kubevirt APB doesn't work.
+In case Kubevirt APB doesn't work.
 
     docker pull docker.io/ansibleplaybookbundle/kubevirt-apb
     docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/kubevirt-apb provision --extra-vars 'namespace=kube-system' --extra-vars 'admin_user=admin' --extra-vars 'admin_password=admin' --extra-vars 'namespace=kube-system' --extra-vars 'cluster=openshift' --extra-vars 'tag=v0.3.0'
