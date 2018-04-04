@@ -1,0 +1,9 @@
+apiVersion: kubevirt.io/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: vm1
+spec:
+  domain:
+    resources:
+      requests:
+memory: 64M
