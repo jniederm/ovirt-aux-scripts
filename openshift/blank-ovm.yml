@@ -12,6 +12,7 @@ spec:
         l1: l1-value
     spec:
       domain:
+        devices:
         resources:
           requests:
             memory: 8Mi

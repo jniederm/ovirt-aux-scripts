@@ -1,0 +1,18 @@
+apiVersion: kubevirt.io/v1alpha1
+kind: OfflineVirtualMachine
+metadata:
+  name: david-ovm
+  labels:
+    kubevirt.io/my: label
+spec:
+  running: false # equivalent to replicas 0
+  template:
+    metadata:
+      labels:
+        kubevirt.io/my: label
+    spec:
+      domain:
+        devices:
+        resources:
+          requests:
+            memory: 32M

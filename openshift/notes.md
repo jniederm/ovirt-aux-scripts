@@ -1,8 +1,3 @@
-* oc whoami
-
-oc policy add-role-to-user cluster-admin developer
-oc adm policy add-cluster-role-to-user cluster-admin developer
-
 ## Openshift & Ansible Service Broker & Kubevirt developer environment
 
 1. install `oc`
@@ -49,3 +44,10 @@ In case Kubevirt APB doesn't work.
 
     docker pull docker.io/ansibleplaybookbundle/kubevirt-apb
     docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/kubevirt-apb provision --extra-vars 'namespace=kube-system' --extra-vars 'admin_user=admin' --extra-vars 'admin_password=admin' --extra-vars 'namespace=kube-system' --extra-vars 'cluster=openshift' --extra-vars 'tag=v0.3.0'
+
+---
+
+* oc whoami
+* cluster down && ./start-with-kubevirt-and-ansible-service-broker.sh
+* hack/clean-deps.sh && hack/install-deps.sh
+* hack/clean-deps.sh && hack/install-deps.sh && bower link origin-web-common && bower link origin-web-catalog
