@@ -48,6 +48,6 @@ In case Kubevirt APB doesn't work.
 ---
 
 * oc whoami
-* cluster down && ./start-with-kubevirt-and-ansible-service-broker.sh
+* oc cluster down && ./start-with-kubevirt-and-ansible-service-broker.sh
 * hack/clean-deps.sh && hack/install-deps.sh
 * hack/clean-deps.sh && hack/install-deps.sh && bower link origin-web-common && bower link origin-web-catalog
