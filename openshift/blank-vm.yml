@@ -4,6 +4,8 @@ metadata:
   name: vm1
 spec:
   domain:
+    devices:
     resources:
       requests:
-memory: 64M
+        memory: 64M
+        
