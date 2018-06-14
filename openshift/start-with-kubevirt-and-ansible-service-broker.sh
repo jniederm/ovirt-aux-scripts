@@ -18,7 +18,7 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:kube-system:kubev
 #docker run --rm --net=host -v $HOME/.kube:/opt/apb/.kube:z -u $UID docker.io/ansibleplaybookbundle/kubevirt-apb provision --extra-vars 'namespace=kube-system' --extra-vars 'admin_user=admin' --extra-vars 'admin_password=admin' --extra-vars 'namespace=kube-system' --extra-vars 'cluster=openshift' --extra-vars 'tag=v0.4.1'
 
 # kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/v0.4.1/kubevirt.yaml
-kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/v0.5.0/kubevirt.yaml
+kubectl apply -f https://github.com/kubevirt/kubevirt/releases/download/v0.6.0/kubevirt.yaml
 
 #oc login -u admin
 

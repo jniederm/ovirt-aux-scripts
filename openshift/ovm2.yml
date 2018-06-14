@@ -1,17 +1,13 @@
 apiVersion: kubevirt.io/v1alpha1
 kind: OfflineVirtualMachine
 metadata:
-  name: vm2
+  name: ovm2
 spec:
   running: true
   template:
-    metadata:
-      labels:
-        l1: l1-value
-        kubevirt.io/os: RHEL9
     spec:
       domain:
         devices:
         resources:
-          requests:
-            memory: 8Mi
+          # requests:
+            # memory: 32M

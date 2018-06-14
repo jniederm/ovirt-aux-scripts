@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vi
+  namespace: project1
+spec:
+  containers:
+    - command:
+        - vi
+      image: 'fedora:28'
+      imagePullPolicy: IfNotPresent
+      name: bash
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 30
+

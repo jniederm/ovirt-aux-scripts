@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: double-idle
+  namespace: project1
+spec:
+  containers:
+    - command:
+        - /idle.js
+        - idle1
+      image: 'docker.io/jniederm/idlejs:1'
+      imagePullPolicy: IfNotPresent
+      name: idle1
+    - command:
+        - /idle.js
+        - idle2
+        - '3'
+      image: 'docker.io/jniederm/idlejs:1'
+      imagePullPolicy: IfNotPresent
+      name: idle2
+  restartPolicy: Never
+  terminationGracePeriodSeconds: 30
+

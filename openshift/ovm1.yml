@@ -1,0 +1,24 @@
+apiVersion: kubevirt.io/v1alpha1
+kind: OfflineVirtualMachine
+metadata:
+  name: ovm1
+  labels:
+    kubevirt.io/my: label
+    kubevirt.io/my2: label
+    kubevirt.io/my3: label
+    kubevirt.io/my4: label
+    kubevirt.io/my5: label
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/os: winme
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+        resources:
+          requests:
+            memory: 32M
